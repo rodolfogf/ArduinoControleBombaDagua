@@ -1,0 +1,9 @@
+No tinkercad a ordem é 
+	-Coletor
+	-Base
+	-Emissor
+	
+O TIP102 tem a ordem
+	-Base
+	-Coletor
+	-Emissor
