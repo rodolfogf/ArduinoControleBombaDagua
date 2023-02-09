@@ -73,5 +73,7 @@ void loop()
   Serial.print(";");
   Serial.println(nivel);
   Serial.print("\n");
+
+  delay(50);
 }
 
