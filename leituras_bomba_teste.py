@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from IPython.core.display_functions import display
 
 leituras = pd.read_csv(
-    r'C:\_UEMG\Disciplinas\Controle e Servomecanismo\Trabalho1_ControleBomba2\CoolTerm Capture 2022-11-25 15-06-13.txt.csv',
+    r'C:\_UEMG\Disciplinas\Controle e Servomecanismo\Trabalho1_ControleBomba2\CoolTerm Capture 2023-02-08 21-43-37.txt.csv',
     sep=';')
 pd.set_option('display.max_rows', None)
 
@@ -20,10 +20,11 @@ moda = pd.DataFrame()
 
 for i, t in enumerate(tempo):
     tmp_df = leituras[leituras['tempo'] == t]
-    mdn = statistics.median(tmp_df['nivel'])
-    md = statistics.mode(tmp_df['nivel'])
+    #mdn = statistics.median(tmp_df['nivel'])
+    #md = statistics.mode(tmp_df['nivel'])
 
-    print(f't:{t} Mediana: {mdn} Moda: {md}')
+    #print(f't:{t} Mediana: {mdn} Moda: {md}')
+    print(f't:{t}')
 
 
 
