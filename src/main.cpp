@@ -14,26 +14,39 @@ do pwm também tende a zero, ou seja, potência muito baixa ou nula
 # define vsom 0.0343
 # define nivel_max 15.00
 # define vazao 0.0513
-# define kp 34.00
+# define kp 80.00
+# define ki 0.1
+# define kd 35.00
 
 bool atraso = true;
 bool cabecalho;
 float time_now;
+float time_after;
 double distancia;
 double nivel;
 double valor_ref;
+double erro_previo;
+double erro_atual;
+double erro_acumulado;
 
 void ligarBomba(int valor_pwm)
 {
   analogWrite(pinBomba, valor_pwm);
 }
 
-int definirPwm(double valor_nivel)
+int definirPwm(double valor_nivel, double erro_somatorio, double erro_anterior)
 {  
-  int pwm = (valor_ref - valor_nivel) * kp;
+  double erro_atual = valor_ref - valor_nivel;
+  erro_somatorio = (erro_atual * (time_now - time_after) + erro_somatorio);
+  double derivada_aprox = (erro_atual - erro_anterior)/(time_now - time_after);
+
+  int pwm = erro_atual * kp + (ki * erro_somatorio) + kd * derivada_aprox;
 
   if (pwm > 255) pwm = 255;
   else if (pwm < 0) pwm = 0;
+
+  time_after = time_now;
+  erro_anterior = erro_atual;
 
   return pwm;
 }
@@ -46,6 +59,8 @@ void setup()
   cabecalho = 1;
   valor_ref = nivel_max;
   Serial.begin(9600);
+  time_after = 0;
+  erro_previo = 0;
 }
 
 void loop()
@@ -62,7 +77,7 @@ void loop()
   /*if (nivel < nivel_max) ligarBomba(definirPwm(nivel));
   //else desligarBomba();*/
 
-  ligarBomba(definirPwm(nivel));
+  ligarBomba(definirPwm(nivel, erro_acumulado, erro_previo));
 
   if (cabecalho == 1){
     Serial.print("tempo;nivel\n");
