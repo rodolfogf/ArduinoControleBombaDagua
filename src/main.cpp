@@ -12,7 +12,6 @@ os valores de kp, ki e kd foram os sugeridos pelo Marcos
 # define altura 23.6
 # define vsom 0.0343
 # define nivel_max 15.00
-# define vazao 0.0513
 # define kp 80.00
 # define ki 0.1
 # define kd 35.00
