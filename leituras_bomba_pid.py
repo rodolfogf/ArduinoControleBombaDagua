@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 leituras = pd.read_csv(
-    r'C:\_UEMG\Disciplinas\Controle e Servomecanismo\Trabalho1_ControleBomba2\Leituras.csv',
+    r'C:\_UEMG\Disciplinas\Controle e Servomecanismo\Trabalho1_ControleBomba2\LeiturasPID_50-0.1-55.csv',
     sep=';')
 pd.set_option('display.max_rows', None)
 
@@ -19,7 +19,8 @@ plt.show()
 
 #---------------------------------- Correções e normalização ---------------------------------#
 
-leituras['nivel'] = leituras['nivel'].apply(lambda x: x - 2.09)
+leituras['tempo'] = leituras['tempo'].apply(lambda y: y - 10)
+leituras['nivel'] = leituras['nivel'].apply(lambda x: x - 2.51)
 leituras = leituras.drop(leituras[leituras.nivel < 0].index)
 leituras = leituras.reset_index().drop(columns=['index'])
 

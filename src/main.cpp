@@ -10,9 +10,9 @@ os valores de kp, ki e kd foram os sugeridos pelo Marcos
 # define altura 24.00
 # define vsom 0.0343
 # define nivel_max 15.00
-# define kp 80.00
+# define kp 80
 # define ki 0.1
-# define kd 35.00
+# define kd 70
 
 bool cabecalho;
 unsigned long tempo_agora;
@@ -75,8 +75,7 @@ void loop()
   tempo_agora = millis();
   tempo_segundos = tempo_agora/1000;
 
-  if (tempo_agora > atraso_inicio){
-
+  
     digitalWrite(pinSensorTrig, HIGH);
     delayMicroseconds(15);
     digitalWrite(pinSensorTrig, LOW);
@@ -88,7 +87,8 @@ void loop()
     Esse valor é calculado na função "definirPwm, que apenas retorna o valor do pwm*/
     double valor_pwm = definirPwm(nivel, erro_acumulado, erro_previo);
 
-    ligarBomba(valor_pwm);
+    if (tempo_agora > atraso_inicio)
+      ligarBomba(valor_pwm);
 
     //serve para imprimir o cabeçalho na primeira vez
     if (cabecalho == 1){
@@ -105,5 +105,5 @@ void loop()
 
     //Utilizado para corrigir os valores discrepantes que estavam sendo impressos no gráfico
     delay(50);
-  }  
+
 }
