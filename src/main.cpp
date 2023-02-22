@@ -10,9 +10,9 @@ os valores de kp, ki e kd foram os sugeridos pelo Marcos
 # define altura 24.00
 # define vsom 0.0343
 # define nivel_max 15.00
-# define kp 20
-# define ki 0.01
-# define kd 50
+# define kp 80
+# define ki 0.1
+# define kd 35
 
 bool cabecalho;
 unsigned long tempo_agora;
