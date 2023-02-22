@@ -1,0 +1,12 @@
+•	Definição de sistema de primeira ordem e explicação de sua curva característica (focando sobre o Tau e quantas constantes de tempo são necessárias para considerar o sistema estabilizado) -> Explicação MUITO superficial (citou apenas sobre como encontrar Tau), não comentaram sobre quantas constantes de Tau são necessárias para estabilizar o sistema e seus respectivos valores em porcentagem.
+
+No momento da apresentação falar explitamente que em um sistema de primeira ordem falar que apenas uma constante de tempo para estabilizar o sistema. A constante de tempo é uma medida da rapidez com que o sistema responde a uma mudança em seu estado inicial, e é determinada pela resposta ao degrau do sistema.
+
+•	Projeto do sistema do tanque (explicar estrutura física do tanque, bem como, o circuito eletrônico e seu funcionamento) -> Não precisa regravar
+•	Explicar diagrama de blocos dos sistemas seus (tanque de água horizontal ou vertical) -> Diagrama de blocos ficou incompleto, faltaram os blocos referentes ao driver de acionamento, bem como, do sistema (tanque de água vertical).
+•	Detalhar os procedimentos utilizados para obter a função de transferência do sistema (mostrar gráficos sem normalizar e normalizado) -> Não foi mostrado o gráfico normalizado do sistema sem controlador PID
+•	Explicar o conceito de controlador PID (função de cada parte - Kp, Ki e Kd) e como ele é implementado no código -> Não foram explicadas as funções de Kp, Ki e Kd
+•	Detalhar os procedimentos (ou ajustes nos valores) utilizados para controlar o sistema por meio do PID (mostrar gráficos sem normalizar e normalizado) -> Não foi mostrado o gráfico normalizado com o PID
+•	Comparar os gráficos (sem controle e com controle) obtidos e justificar as diferenças na dinâmica -> Não houve comparação entre os gráficos obtidos para verificar se o sistema ficou mais rápido ou lento. 
+
+Obs: Maioria dos tópicos pedidos não foram respeitados ou foram feitos de forma errada. Favor regravar seguindo o que foi pedido.

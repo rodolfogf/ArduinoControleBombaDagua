@@ -10,9 +10,9 @@ os valores de kp, ki e kd foram os sugeridos pelo Marcos
 # define altura 24.00
 # define vsom 0.0343
 # define nivel_max 15.00
-# define kp 80
-# define ki 0.1
-# define kd 70
+# define kp 20
+# define ki 0.01
+# define kd 50
 
 bool cabecalho;
 unsigned long tempo_agora;
@@ -67,7 +67,7 @@ void setup()
   Serial.begin(9600);
   tempo_antes = 0;
   erro_previo = 0;
-  atraso_inicio = 10000;
+  atraso_inicio = 3000;
 }
 
 void loop()
